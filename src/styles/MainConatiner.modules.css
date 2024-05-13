@@ -1,0 +1,22 @@
+.main-container {
+  flex: 1;
+  padding: 24px;
+  background-color: #ffffff;
+  margin-left: 220px;
+  margin-top: 60px;
+  padding: 20px;
+  z-index: -1;
+}
+
+.require-login-message {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 520px;
+  white-space: nowrap;
+  height: 100%;
+  font-size: 44px;
+  color: #888888;
+}

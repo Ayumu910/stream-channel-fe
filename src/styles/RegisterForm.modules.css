@@ -1,0 +1,101 @@
+.register-form {
+  width: 563px;
+  height: 420px;
+  padding: 20px;
+  background: rgba(241, 141, 20, 0.13);
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  position: relative;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-header h2 {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 57px;
+  margin-bottom: 30px;
+}
+
+.close-button {
+  background: none;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.register-form input {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 60px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.register-form button[type="submit"] {
+  display: block;
+  width: 15%;
+  padding: 15px;
+  margin-left:auto;
+  background-color: rgba(241, 141, 20, 1);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.register-form button[type="submit"]:hover {
+  background-color: rgb(255, 123, 0);
+}
+
+.message-box {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 4px;
+  opacity: 0;
+  animation: fadeInOut 5s ease;
+}
+
+.message-box.success {
+  background-color: #4caf50;
+}
+
+.message-box.error {
+  background-color: #f44336;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+}

@@ -1,0 +1,95 @@
+.side-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  padding: 5px;
+  box-sizing: border-box;
+  background: rgba(241, 141, 20, 0.13);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.side-menu__list {
+  list-style-type: none;
+  padding-top:50px;
+  padding-left: 20px;
+}
+
+.side-menu__item {
+  margin-bottom: 50px;
+  text-align:left;
+}
+
+.side-menu__link {
+  text-decoration: none;
+  color: #3a2000;
+  font-family: 'DM Sans';
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.side-menu__signup-btn {
+  display: block;
+  width: 85%;
+  padding: 30px;
+  margin-top: 200px;
+  margin-left: 15px;
+  font-family: 'DM Sans';
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #fff;
+  background-color: #ff8A00;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.side-menu__signup-btn:hover {
+  background-color: #ff8800aa;
+}
+
+.side-menu__signup-btn:focus {
+  outline: none;
+}
+
+.side-menu__logout-btn {
+  display: block;
+  width: 85%;
+  padding: 30px;
+  margin-top: 500px;
+  margin-left: 15px;
+  font-family: 'DM Sans';
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #FF8A00;
+  text-decoration-line: underline;
+  background-color: transparent;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.side-menu__logout-btn:hover {
+  background-color: rgba(249, 143, 15, 0.13);
+}
+
+.side-menu__logout-btn:focus {
+  outline: none;
+}
+
+.auth-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
