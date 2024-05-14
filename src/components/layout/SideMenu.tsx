@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import AuthForm from '../auth/AuthForm';
+import { AuthContext  } from '../../contexts/AuthContext'
 import '../../styles/SideMenu.modules.css';
 
-interface SideMenuProps {
-  isLoggedIn: boolean;
-  setIsLoggedIn: (isLoggedIn: boolean) => void;
-}
-
-const SideMenu: React.FC<SideMenuProps> = ({ isLoggedIn, setIsLoggedIn }) => {
+const SideMenu: React.FC = ( ) => {
   const [showAuthForm, setShowAuthForm] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -48,7 +45,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ isLoggedIn, setIsLoggedIn }) => {
 
         {showAuthForm && (
           <div className="auth-form-overlay">
-            <AuthForm onClose={handleCloseAuthForm} setIsLoggedIn={setIsLoggedIn} />
+            <AuthForm onClose={handleCloseAuthForm} />
           </div>
         )}
     </>

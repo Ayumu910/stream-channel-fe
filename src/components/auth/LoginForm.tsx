@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../../styles/LoginForm.modules.css';
+import { AuthContext } from '../../contexts/AuthContext';
 
 interface LoginFormProps {
   onClose: () => void;
-  setIsLoggedIn: (isLoggedIn: boolean) => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onClose, setIsLoggedIn }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const { setIsLoggedIn } = useContext(AuthContext);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

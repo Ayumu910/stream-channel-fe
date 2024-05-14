@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within, expect, waitFor } from '@storybook/test';
 import { http, HttpResponse } from 'msw';
-import RegisterForm from '../components/auth/RegisterForm'
+import RegisterForm from '../components/auth/RegisterForm';
+import { AuthProvider } from '../contexts/AuthContext';
 
 const meta: Meta<typeof RegisterForm> = {
     title: 'Auth/RegisterForm',
@@ -9,8 +10,14 @@ const meta: Meta<typeof RegisterForm> = {
     tags: ['autodocs'],
     argTypes: {
         onClose: { action: 'closed' },
-        setIsLoggedIn: { action: 'logged in' },
     },
+    decorators: [
+        (Story) => (
+          <AuthProvider>
+            <Story />
+          </AuthProvider>
+        ),
+    ],
 };
 export default meta;
 

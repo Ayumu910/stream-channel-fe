@@ -2,15 +2,19 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within, expect, waitFor } from '@storybook/test';
 import { http, HttpResponse } from 'msw';
 import SideMenu from '../components/layout/SideMenu'
+import { AuthProvider } from '../contexts/AuthContext';
 
 const meta: Meta<typeof SideMenu> = {
     title: 'Layout/SideMenu',
     component: SideMenu,
     tags: ['autodocs'],
-    argTypes: {
-        isLoggedIn: { control: 'boolean' },
-        setIsLoggedIn: { action: 'logged in or logged out' },
-    },
+    decorators: [
+        (Story) => (
+          <AuthProvider>
+            <Story />
+          </AuthProvider>
+        ),
+    ],
 };
 export default meta;
 
@@ -73,9 +77,8 @@ export const LoggedIn: Story = {
             await userEvent.click(closeButton2);
         });
 
-        //isLoggedIn 状態を管理するのは TopPage.tsx なので、このコンポーネントだけでは「Logout」に切り替わらない
         await waitFor(async () => {
-            const logoutButton = await canvas.findByRole('button', { name: /sign up/i });
+            const logoutButton = await canvas.findByRole('button', { name: /Logout/i });
             expect(logoutButton).toBeInTheDocument();
             expect(localStorage.getItem('token')).toBe('mocked_token');
         });

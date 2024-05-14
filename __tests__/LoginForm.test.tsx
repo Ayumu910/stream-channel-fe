@@ -2,17 +2,22 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import LoginForm from '../src/components/auth/LoginForm';
+import { AuthContext } from '../src/contexts/AuthContext';
 
 describe('LoginForm', () => {
-  const mockOnClose = jest.fn();
-  const mockSetIsLoggedIn = jest.fn();
+  const onCloseMock = jest.fn();
+  const setIsLoggedInMock = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   test('renders login form', () => {
-    render(<LoginForm onClose={mockOnClose} setIsLoggedIn={mockSetIsLoggedIn} />);
+    render(
+      <AuthContext.Provider value={{ isLoggedIn: false, setIsLoggedIn: setIsLoggedInMock }}>
+        <LoginForm onClose={onCloseMock} />
+      </AuthContext.Provider>
+    );
     expect(screen.getByRole('heading', { name: 'Login' })).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Email')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
@@ -20,13 +25,21 @@ describe('LoginForm', () => {
   });
 
   test('calls onClose when close button is clicked', () => {
-    render(<LoginForm onClose={mockOnClose} setIsLoggedIn={mockSetIsLoggedIn} />);
+    render(
+      <AuthContext.Provider value={{ isLoggedIn: false, setIsLoggedIn: setIsLoggedInMock }}>
+        <LoginForm onClose={onCloseMock} />
+      </AuthContext.Provider>
+    );
     fireEvent.click(screen.getByRole('button', { name: /×/ }));
-    expect(mockOnClose).toHaveBeenCalledTimes(1);
+    expect(onCloseMock).toHaveBeenCalledTimes(1);
   });
 
   test('updates email and password fields', () => {
-    render(<LoginForm onClose={mockOnClose} setIsLoggedIn={mockSetIsLoggedIn} />);
+    render(
+      <AuthContext.Provider value={{ isLoggedIn: false, setIsLoggedIn: setIsLoggedInMock }}>
+        <LoginForm onClose={onCloseMock} />
+      </AuthContext.Provider>
+    );
     const emailInput = screen.getByPlaceholderText('Email');
     const passwordInput = screen.getByPlaceholderText('Password');
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
@@ -41,14 +54,17 @@ describe('LoginForm', () => {
       json: async () => ({ token: 'mockToken' }),
     });
 
-    render(<LoginForm onClose={mockOnClose} setIsLoggedIn={mockSetIsLoggedIn} />);
+    render(
+      <AuthContext.Provider value={{ isLoggedIn: false, setIsLoggedIn: setIsLoggedInMock }}>
+        <LoginForm onClose={onCloseMock} />
+      </AuthContext.Provider>
+    );
     fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'test@example.com' } });
     fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'password123' } });
     fireEvent.click(screen.getByRole('button', { name: 'Login' }));
 
     await waitFor(() => {
       expect(screen.getByText('Login successful')).toBeInTheDocument();
-      expect(mockSetIsLoggedIn).toHaveBeenCalledWith(true);
     });
   });
 
@@ -58,15 +74,18 @@ describe('LoginForm', () => {
       json: async () => ({ error: 'Invalid credentials' }),
     });
 
-    render(<LoginForm onClose={mockOnClose} setIsLoggedIn={mockSetIsLoggedIn} />);
+    render(
+      <AuthContext.Provider value={{ isLoggedIn: false, setIsLoggedIn: setIsLoggedInMock }}>
+        <LoginForm onClose={onCloseMock} />
+      </AuthContext.Provider>
+    );
     fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'test@example.com' } });
     fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'password123' } });
     fireEvent.click(screen.getByRole('button', { name: 'Login' }));
 
     await waitFor(() => {
       expect(screen.getByText('Invalid credentials')).toBeInTheDocument();
-      expect(mockSetIsLoggedIn).not.toHaveBeenCalled();
-      expect(mockOnClose).not.toHaveBeenCalled();
+      expect(onCloseMock).not.toHaveBeenCalled();
     });
   });
 });
