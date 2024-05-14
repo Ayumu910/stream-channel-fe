@@ -1,13 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import MainContainer from '../components/layout/MainContainer';
+import { AuthProvider } from '../contexts/AuthContext';
 
 const meta: Meta<typeof MainContainer> = {
     title: 'Layout/MainContainer',
     component: MainContainer,
     tags: ['autodocs'],
-    argTypes: {
-        isLoggedIn :{ control: 'boolean' },
-    },
+    decorators: [
+        (Story) => (
+          <AuthProvider>
+            <Story />
+          </AuthProvider>
+        ),
+    ],
 };
 export default meta;
 

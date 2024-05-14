@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-import '../../styles/AuthForm.modules.css'
+import '../../styles/AuthForm.modules.css';
+import { AuthContext } from '../../contexts/AuthContext';
+
 
 interface AuthFormProps {
   onClose: () => void;
-  setIsLoggedIn: (isLoggedIn: boolean) => void;
 }
 
-const AuthForm: React.FC<AuthFormProps> = ({ onClose, setIsLoggedIn }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ onClose }) => {
   const [selectedForm, setSelectedForm] = useState<'login' | 'register' | null>(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const { setIsLoggedIn } = useContext(AuthContext);
 
 
   const handleFormSelect = (form: 'login' | 'register') => {
@@ -56,11 +58,11 @@ const AuthForm: React.FC<AuthFormProps> = ({ onClose, setIsLoggedIn }) => {
 
   // Login or Register ボタンを押したとき、この画面を消して LoginForm or RegisterForm を表示
   if (selectedForm === 'login') {
-    return <LoginForm onClose={handleCloseForm} setIsLoggedIn={setIsLoggedIn} />;
+    return <LoginForm onClose={handleCloseForm} />;
   }
 
   if (selectedForm === 'register') {
-    return <RegisterForm onClose={handleCloseForm} setIsLoggedIn={setIsLoggedIn} />;
+    return <RegisterForm onClose={handleCloseForm} />;
   }
 
   return (

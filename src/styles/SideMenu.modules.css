@@ -59,7 +59,7 @@
   display: block;
   width: 85%;
   padding: 30px;
-  margin-top: 500px;
+  margin-top: 200px;
   margin-left: 15px;
   font-family: 'DM Sans';
   font-size: 24px;
@@ -68,16 +68,20 @@
   color: #FF8A00;
   text-decoration-line: underline;
   background-color: transparent;
-  border: none;
+  border: 1px solid rgba(58, 32, 0, 0.88);
   border-radius: 30px;
   cursor: pointer;
 }
 
 .side-menu__logout-btn:hover {
   background-color: rgba(249, 143, 15, 0.13);
+  border: 1px solid rgba(58, 32, 0, 0.88);
+  outline: none;
 }
 
 .side-menu__logout-btn:focus {
+  background-color: rgba(249, 143, 15, 0.13);
+  border: 1px solid rgba(58, 32, 0, 0.88);
   outline: none;
 }
 

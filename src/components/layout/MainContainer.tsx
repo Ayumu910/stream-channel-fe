@@ -1,15 +1,14 @@
-// MainContainer.tsx
-import React from 'react';
+import React, {useContext} from 'react';
 import StreamList from '../StreamList';
 import StreamerList from '../StreamerList';
 import Playlists from '../Playlists';
 import '../../styles/MainConatiner.modules.css'
+import { AuthContext } from '../../contexts/AuthContext';
 
-interface MainContainerProps {
-  isLoggedIn: boolean;
-}
 
-const MainContainer: React.FC<MainContainerProps> = ({ isLoggedIn }) => {
+const MainContainer: React.FC = () => {
+  const { isLoggedIn } = useContext(AuthContext);
+
   if (!isLoggedIn) {
     return <div className='require-login-message'>ログインしてください</div>;
   }

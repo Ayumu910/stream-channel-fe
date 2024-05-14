@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within, expect, waitFor } from '@storybook/test';
 import { http, HttpResponse } from 'msw';
 import AuthForm from '../components/auth/AuthForm';
+import { AuthProvider } from '../contexts/AuthContext';
 
 const meta: Meta<typeof AuthForm> = {
     title: 'Auth/AuthForm',
@@ -9,8 +10,14 @@ const meta: Meta<typeof AuthForm> = {
     tags: ['autodocs'],
     argTypes: {
         onClose: { action: 'closed' },
-        setIsLoggedIn: { action: 'logged in' },
     },
+    decorators: [
+      (Story) => (
+        <AuthProvider>
+          <Story />
+        </AuthProvider>
+      ),
+    ],
 };
 export default meta;
 
