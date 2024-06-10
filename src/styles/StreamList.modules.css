@@ -1,0 +1,51 @@
+/* StreamList.modules.css */
+.stream-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin-left: 220px;
+  margin-top: 60px;
+}
+
+.stream-list h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.stream-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.show-more-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.show-more-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.show-more-button {
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0 50px;
+  white-space: nowrap;
+}
+
+.show-more-button:hover {
+  text-decoration: underline;
+}

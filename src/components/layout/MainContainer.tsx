@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import StreamList from '../StreamList';
+import StreamList from '../stream/StreamList';
 import StreamerList from '../StreamerList';
 import Playlists from '../Playlists';
 import '../../styles/MainConatiner.modules.css'
