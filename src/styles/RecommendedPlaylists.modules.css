@@ -1,0 +1,20 @@
+.recommended-playlists {
+  margin-top: 40px;
+  padding: 60px;
+  margin-left: 220px;
+  width: 100%;
+  max-width:960px;
+  position: relative;
+}
+
+.recommended-playlists h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.playlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

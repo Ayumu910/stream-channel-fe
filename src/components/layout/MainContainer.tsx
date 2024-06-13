@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import StreamList from '../stream/StreamList';
 import RecommendedCategoryList from '../category/RecommendedCategoryList'
-import Playlists from '../Playlists';
+import RecommendedPlaylists from '../playlist/RecommendedPlaylists';
 import '../../styles/MainConatiner.modules.css'
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -19,7 +19,7 @@ const MainContainer: React.FC = () => {
     <main>
       <StreamList />
       <RecommendedCategoryList />
-      <Playlists />
+      <RecommendedPlaylists />
     </main>
   );
 };
