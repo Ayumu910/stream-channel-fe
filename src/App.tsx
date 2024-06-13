@@ -4,6 +4,7 @@ import StreamerListPage from './pages/StreamerListPage';
 import PlaylistPage from './pages/PlaylistPage';
 import StreamDetailPage from './pages/StreamDetailPage';
 import CategoryDetailPage from './pages/CategoryDetailPage'
+import PlaylistDetailPage from './pages/PlaylistDetailPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/playlist" element={<PlaylistPage />} />
         <Route path="/stream/:id" element={<StreamDetailPage />} />
         <Route path="/category/:categoryId" element={<CategoryDetailPage />} />
+        <Route path="/playlist/:playlistId" element={<PlaylistDetailPage />} />
       </Routes>
     </Router>
   );
