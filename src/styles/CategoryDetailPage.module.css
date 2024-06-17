@@ -5,7 +5,7 @@
   flex-grow: 1;
 }
 
-.category-name {
+.category-detail-page__name {
   font-size: 24px;
   font-weight: bold;
   color: #FF8A00;
@@ -14,7 +14,7 @@
   margin-bottom: 20px;
 }
 
-.streamer-list {
+.category-detail-page__streamer-list {
   display: flex;
   flex-direction: column;
   gap: 20px;

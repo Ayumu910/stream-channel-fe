@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/RecommendedCategory.modules.css';
+import styles from '../../styles/RecommendedCategory.module.css';
 
 interface RecommendedCategoryProps {
   categoryId: string;
@@ -20,11 +20,15 @@ const RecommendedCategory: React.FC<RecommendedCategoryProps> = ({
   };
 
   return (
-    <div className="recommended-category" onClick={handleCategoryClick}>
-      <div className="category-name">{categoryName}</div>
-      <div className="streamer-icons">
+    <div className={styles["recommended-category"]} onClick={handleCategoryClick}>
+      <div className={styles["recommended-category__name"]}>{categoryName}</div>
+      <div className={styles["recommended-category__streamer-icons"]}>
         {streamerIcons.map((icon, index) => (
-        <img key={index} src={icon} alt={`Streamer Icon ${index + 1}`} />
+        <img
+          key={index}
+          className={styles['recommended-category__streamer-icon']}
+          src={icon}
+          alt={`Streamer Icon ${index + 1}`} />
       ))}
       </div>
     </div>

@@ -1,19 +1,19 @@
 .recommended-playlists {
-  margin-top: 40px;
-  padding: 60px;
+  margin-top: 10px;
+  padding: 20px;
   margin-left: 220px;
   width: 100%;
   max-width:960px;
   position: relative;
 }
 
-.recommended-playlists h2 {
+.recommended-playlists__heading {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-.playlist-list {
+.recommended-playlists__list {
   display: flex;
   flex-direction: column;
   gap: 20px;

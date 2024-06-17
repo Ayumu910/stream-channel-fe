@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import useCategoryDetail from '../hooks/useCategoryDetail';
 import Streamer from '../components/streamer/Streamer';
-import '../styles/CategoryDetailPage.modules.css';
+import styles from '../styles/CategoryDetailPage.module.css';
 import { AuthProvider } from '../contexts/AuthContext';
 import GlobalNavBar from '../components/layout/NavBar';
 import SideMenu from '../components/layout/SideMenu';
@@ -25,9 +25,9 @@ const CategoryDetailPage: React.FC = () => {
         <GlobalNavBar />
         <div style={{ display: 'flex' }}>
           <SideMenu />
-          <main className="category-detail-page">
-            <h1 className="category-name">{category?.category_name}</h1>
-            <div className="streamer-list">
+          <main className={styles["category-detail-page"]}>
+            <h1 className={styles["category-detail-page__name"]}>{category?.category_name}</h1>
+            <div className={styles["category-detail-page__streamer-list"]}>
               {category?.streamers.map((streamer) => (
                 <Streamer key={streamer.id} streamer={streamer} />
               ))}

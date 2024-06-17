@@ -1,4 +1,3 @@
-/* StreamList.modules.css */
 .stream-list {
   display: flex;
   flex-direction: column;
@@ -6,15 +5,16 @@
   padding: 20px;
   margin-left: 220px;
   margin-top: 60px;
+  max-width:960px;
 }
 
-.stream-list h2 {
+.stream-list__heading {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.stream-grid {
+.stream-list__grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -22,20 +22,20 @@
   margin-bottom: 20px;
 }
 
-.show-more-container {
+.stream-list__show-more {
   display: flex;
   align-items: center;
   width: 100%;
   margin-top: 20px;
 }
 
-.show-more-line {
+.stream-list__show-more-line {
   flex-grow: 1;
   height: 1px;
   background-color: #ccc;
 }
 
-.show-more-button {
+.stream-list__show-more-button {
   font-size: 16px;
   color: #333;
   border: 1px solid #ccc;
@@ -46,6 +46,6 @@
   white-space: nowrap;
 }
 
-.show-more-button:hover {
+.stream-list__show-more-button:hover {
   text-decoration: underline;
 }
