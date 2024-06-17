@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import AuthForm from '../auth/AuthForm';
 import { AuthContext  } from '../../contexts/AuthContext'
-import '../../styles/SideMenu.modules.css';
+import styles from '../../styles/SideMenu.module.css';
 
 const SideMenu: React.FC = ( ) => {
   const [showAuthForm, setShowAuthForm] = useState(false);
@@ -22,29 +22,29 @@ const SideMenu: React.FC = ( ) => {
 
   return (
     <>
-      <aside className="side-menu">
+      <aside className={styles["side-menu"]}>
 
-        <ul className="side-menu__list">
-          <li className="side-menu__item">
-            <a href="/" className="side-menu__link">Top</a>
+        <ul className={styles["side-menu__list"]}>
+          <li className={styles["side-menu__item"]}>
+            <a href="/" className={styles["side-menu__link"]}>Top</a>
           </li>
-          <li className="side-menu__item">
-            <a href="/streamer" className="side-menu__link">Streamer</a>
+          <li className={styles["side-menu__item"]}>
+            <a href="/streamer" className={styles["side-menu__link"]}>Streamer</a>
           </li>
-          <li className="side-menu__item">
-            <a href="/playlist" className="side-menu__link">Playlist</a>
+          <li className={styles["side-menu__item"]}>
+            <a href="/playlist" className={styles["side-menu__link"]}>Playlist</a>
           </li>
         </ul>
 
         {isLoggedIn ? (
-            <button className='side-menu__logout-btn' onClick={handleLogout}>Logout</button>
+            <button className={styles['side-menu__logout-btn']} onClick={handleLogout}>Logout</button>
         ) : (
-            <button className='side-menu__signup-btn' onClick={handleOpenAuthForm}>Sign Up</button>
+            <button className={styles['side-menu__signup-btn']} onClick={handleOpenAuthForm}>Sign Up</button>
         )}
         </aside>
 
         {showAuthForm && (
-          <div className="auth-form-overlay">
+          <div className={styles["auth-form-overlay"]}>
             <AuthForm onClose={handleCloseAuthForm} />
           </div>
         )}

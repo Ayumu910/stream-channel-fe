@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/Playlist.modules.css';
+import styles from '../../styles/Playlist.module.css';
 
 interface PlaylistProps {
   playlistId: number;
@@ -16,13 +16,13 @@ const Playlist: React.FC<PlaylistProps> = ({ playlistId, playlistName, thumbnail
   };
 
   return (
-    <div className="playlist" onClick={handleClick}>
-      <div className="playlist-name">{playlistName}</div>
-      <div className="playlist-thumbnail">
+    <div className={styles["playlist"]} onClick={handleClick}>
+      <div className={styles["playlist__name"]}>{playlistName}</div>
+      <div className={styles["playlist__thumbnail"]}>
         {thumbnail ? (
-          <img src={thumbnail} alt={playlistName} />
+          <img className={styles['playlist__thumbnail-image']} src={thumbnail} alt={playlistName} />
         ) : (
-          <div className="default-thumbnail">No Image</div>
+          <div className={styles["playlist__default-thumbnail"]}>No Image</div>
         )}
       </div>
     </div>

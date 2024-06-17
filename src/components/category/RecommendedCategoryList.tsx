@@ -1,16 +1,16 @@
 import React from 'react';
 import RecommendedCategory from '../category/RecommendedCategory';
-import '../../styles/RecommendedCategoryList.modules.css';
+import styles from '../../styles/RecommendedCategoryList.module.css';
 import useRecommendedCategories from '../../hooks/useRecommendedCategories'
 
 const RecommendedCategoryList: React.FC = () => {
   const { categories } = useRecommendedCategories();
 
     return (
-      <div className="recommended-category-list">
-        <h2>他の人はこんな配信者を見ています</h2>
-        <div className="category-grid-wrapper">
-        <div className="category-grid">
+      <div className={styles["recommended-category-list"]}>
+        <h2 className={styles['recommended-category-list__heading']}>他の人はこんな配信者を見ています</h2>
+        <div className={styles["recommended-category-list__grid-wrapper"]}>
+        <div className={styles["recommended-category-list__grid"]}>
           {categories.map((category) => (
             <RecommendedCategory
               key={category.category_id}

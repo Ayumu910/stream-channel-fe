@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/Streamer.modules.css';
+import styles from '../../styles/Streamer.module.css';
 
 interface StreamerProps {
   streamer: {
@@ -19,11 +19,11 @@ const Streamer: React.FC<StreamerProps> = ({ streamer }) => {
   };
 
   return (
-    <div className="streamer" onClick={handleStreamerClick}>
-      <img className="streamer-icon" src={streamer.streamer_icon} alt={`${streamer.name}'s icon`} />
-      <div className="streamer-name">{streamer.name}</div>
+    <div className={styles["streamer"]} onClick={handleStreamerClick}>
+      <img className={styles["streamer__icon"]} src={streamer.streamer_icon} alt={`${streamer.name}'s icon`} />
+      <div className={styles["streamer__name"]}>{streamer.name}</div>
       <img
-        className="most-recent-stream-thumbnail"
+        className={styles["streamer__thumbnail"]}
         src={streamer.most_recent_stream_thumbnail}
         alt={`${streamer.name}'s most recent stream thumbnail`}
       />

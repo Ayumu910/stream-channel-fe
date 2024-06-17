@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/Stream.modules.css'
+import styles from '../../styles/Stream.module.css'
 
 interface StreamProps {
   thumbnail: string;
@@ -16,9 +16,9 @@ const Stream: React.FC<StreamProps> = ({ thumbnail, title, streamId }) => {
   };
 
   return (
-    <div className="stream" onClick={handleClick}>
-      <img className="stream-thumbnail" src={thumbnail} alt="Stream Thumbnail" />
-      <h3 className="stream-title">{title}</h3>
+    <div className={styles["stream"]} onClick={handleClick}>
+      <img className={styles["stream__thumbnail"]} src={thumbnail} alt="Stream Thumbnail" />
+      <h3 className={styles["stream__title"]}>{title}</h3>
     </div>
   );
 };

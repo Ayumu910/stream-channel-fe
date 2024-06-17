@@ -1,15 +1,15 @@
 import React from 'react';
 import Stream from './Stream';
-import '../../styles/StreamList.modules.css'
+import styles from '../../styles/StreamList.module.css'
 import useStreamList from '../../hooks/useStreamList';
 
 const StreamList: React.FC = () => {
   const { streams, displayCount, handleShowMore } = useStreamList();
 
   return (
-    <div className="stream-list">
-      <h2>お気に入りの配信者</h2>
-      <div className="stream-grid">
+    <div className={styles["stream-list"]}>
+      <h2 className={styles['stream-list__heading']}>お気に入りの配信者</h2>
+      <div className={styles["stream-list__grid"]}>
         {streams.slice(0, displayCount).map((stream) => (
           <Stream
             key={stream.id}
@@ -20,12 +20,12 @@ const StreamList: React.FC = () => {
         ))}
       </div>
       {displayCount < streams.length && (
-        <div className="show-more-container">
-          <div className="show-more-line"></div>
-          <button className="show-more-button" onClick={handleShowMore}>
+        <div className={styles["stream-list__show-more"]}>
+          <div className={styles["stream-list__show-more-line"]}></div>
+          <button className={styles["stream-list__show-more-button"]} onClick={handleShowMore}>
             もっと見る
           </button>
-          <div className="show-more-line"></div>
+          <div className={styles["stream-list__show-more-line"]}></div>
         </div>
       )}
     </div>

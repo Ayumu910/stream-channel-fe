@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-import '../../styles/AuthForm.modules.css';
+import styles from '../../styles/AuthForm.module.css';
+import classNames from 'classnames';
 import { AuthContext } from '../../contexts/AuthContext';
 
 
@@ -66,23 +67,47 @@ const AuthForm: React.FC<AuthFormProps> = ({ onClose }) => {
   }
 
   return (
-    <div className="auth-form">
+    <div className={styles['auth-form']}>
       {(successMessage || errorMessage) && (
-        <div className={`auth-form__message-box ${successMessage ? 'auth-form__message-box--success' : 'auth-form__message-box--error'}`}>
+        <div
+          className={classNames(
+            styles['auth-form__message-box'],
+            {
+              [styles['auth-form__message-box--success']]: successMessage,
+              [styles['auth-form__message-box--error']]: errorMessage,
+            }
+          )}
+        >
           {successMessage || errorMessage}
         </div>
       )}
-      <div className="auth-form__header">
-        <button className="auth-form__close-button" onClick={onClose}>×</button>
+      <div className={styles['auth-form__header']}>
+        <button className={styles['auth-form__close-button']} onClick={onClose}>
+          ×
+        </button>
       </div>
-      <div className='auth-form__buttons'>
-        <button className='auth-form__login-button' onClick={() => handleFormSelect('login')}>Login</button>
-        <button className='auth-form__register-button' onClick={() => handleFormSelect('register')}>Register</button>
-        <button className='auth-form__guest-login-button' onClick={handleGuestLogin}>Guest Login</button>
+      <div className={styles['auth-form__buttons']}>
+        <button
+          className={styles['auth-form__login-button']}
+          onClick={() => handleFormSelect('login')}
+        >
+          Login
+        </button>
+        <button
+          className={styles['auth-form__register-button']}
+          onClick={() => handleFormSelect('register')}
+        >
+          Register
+        </button>
+        <button
+          className={styles['auth-form__guest-login-button']}
+          onClick={handleGuestLogin}
+        >
+          Guest Login
+        </button>
       </div>
-
     </div>
-  )
+  );
 };
 
 export default AuthForm;

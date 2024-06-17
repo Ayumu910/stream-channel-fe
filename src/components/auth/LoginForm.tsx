@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-import '../../styles/LoginForm.modules.css';
+import styles from '../../styles/LoginForm.module.css';
+import classNames from 'classnames';
 import { AuthContext } from '../../contexts/AuthContext';
 
 interface LoginFormProps {
@@ -46,15 +47,25 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="login-form">
+    <div className={styles['login-form']}>
       {(successMessage || errorMessage) && (
-        <div className={`message-box ${successMessage ? 'success' : 'error'}`}>
+        <div
+          className={classNames(
+            styles['message-box'],
+            {
+              [styles['success']]: successMessage,
+              [styles['error']]: errorMessage,
+            }
+          )}
+        >
           {successMessage || errorMessage}
         </div>
       )}
-      <div className="form-header">
+      <div className={styles['form-header']}>
         <h2>Login</h2>
-        <button className="close-button" onClick={onClose}>×</button>
+        <button className={styles['close-button']} onClick={onClose}>
+          ×
+        </button>
       </div>
       <form onSubmit={handleSubmit}>
         <input
@@ -62,14 +73,18 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className={styles['input']}
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className={styles['input']}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className={styles['submit-button']}>
+          Login
+        </button>
       </form>
     </div>
   );

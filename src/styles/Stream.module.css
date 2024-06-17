@@ -16,7 +16,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-.stream-thumbnail {
+.stream__thumbnail {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -24,7 +24,7 @@
   margin-bottom: 10px;
 }
 
-.stream-title {
+.stream__title {
   font-size: 22px;
   font-family: 'DM Sans';
   font-weight: bold;

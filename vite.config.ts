@@ -8,4 +8,11 @@ export default defineConfig({
     react(),
     env({ prefix: "VITE",  mountedPath: "process.env" })
   ],
+  css: {
+    modules: {
+      scopeBehaviour: 'local', // 'global' にすると全てのクラス名がグローバルに
+      globalModulePaths: [/\.global\.css$/], // グローバル CSS として扱うパスの正規表現
+      generateScopedName: '[name]__[local]___[hash:base64:5]', // クラス名の生成方法
+    },
+  },
 })
