@@ -1,0 +1,29 @@
+.playlist-detail-page {
+  padding: 20px;
+  margin-left: 220px;
+  margin-top: 60px;
+  flex-grow: 1;
+}
+
+.playlist-detail-page__header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-inline-end: 800px;
+}
+
+.playlist-detail-page__title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.playlist-detail-page__meta {
+  margin-bottom: 20px;
+}
+
+.playlist-detail-page__stream-count {
+  font-size: 16px;
+  color: #666;
+}
