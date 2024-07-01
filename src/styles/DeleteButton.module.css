@@ -1,0 +1,27 @@
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #3A2000;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px;
+  transition: color 0.3s;
+}
+
+.delete-button:hover {
+  color: #E67A00;
+}
+
+.delete-button:focus {
+  outline: 2px solid #FF8A00;
+  outline-offset: 2px;
+}
+
+.delete-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.delete-button__icon {
+  margin-right: 5px;
+  font-size: 16px;
+}
