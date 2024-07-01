@@ -1,3 +1,8 @@
+/*
+  Streamer を呼び出すコンポーネントは width:960px 以上にすること
+  そうしないと Streamer コンポーネントのレイアウトが崩れてしまう
+*/
+
 .streamer {
   display: flex;
   align-items: center;
@@ -6,6 +11,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
+  width: 90%;
 }
 
 .streamer:hover {
@@ -41,5 +47,5 @@
   object-fit: cover;
   border-radius: 5px;
   flex-shrink: 0;
-  margin-left: 30%;
+  margin-left: auto; /* サムネイルを右端に配置 */
 }

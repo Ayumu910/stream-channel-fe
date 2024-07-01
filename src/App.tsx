@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopPage from './pages/TopPage';
-import StreamerListPage from './pages/StreamerListPage';
+import MyStreamerCategoriesPage from './pages/MyStreamerCategoriesPage';
 import PlaylistPage from './pages/PlaylistPage';
 import StreamDetailPage from './pages/StreamDetailPage';
 import StreamerDetailPage from './pages/StreamerDetailPage';
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<TopPage />} />
-        <Route path="/streamer" element={<StreamerListPage />} />
+        <Route path="/streamer" element={<MyStreamerCategoriesPage />} />
         <Route path="/playlist" element={<PlaylistPage />} />
         <Route path="/stream/:id" element={<StreamDetailPage />} />
         <Route path="/streamer/:streamerId" element={<StreamerDetailPage />} />

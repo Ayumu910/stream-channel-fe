@@ -1,0 +1,65 @@
+.category-action-pane {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #FFF5E6;
+  position: relative;
+}
+
+.category-action-pane__button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  margin: auto;
+}
+
+.category-action-pane__button--add {
+  background-color: #FF8A00;
+  color: white;
+  border: none;
+}
+
+.category-action-pane__button--share {
+  background-color: transparent;
+  color: #FF8A00;
+  border: 2px solid #FF8A00;
+}
+
+.category-action-pane__button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.category-action-pane__button-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.category-action-pane__form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.category-action-pane__form-container {
+  background-color: #FFF5E6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
