@@ -1,0 +1,28 @@
+.my-playlists-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFF5E6;
+}
+
+.my-playlists-page__content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.my-playlists-page__main {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 220px;
+  margin-top: 60px;
+  transition: margin-left 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.my-playlists-page__fade-in {
+  animation: fadeIn 0.3s ease;
+}

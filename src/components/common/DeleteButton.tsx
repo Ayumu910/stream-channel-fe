@@ -3,7 +3,7 @@ import styles from '../../styles/DeleteButton.module.css';
 
 interface DeleteButtonProps {
   onDelete: () => void;
-  itemType: 'category' | 'streamer';
+  itemType: 'category' | 'streamer' | 'playlist';
 }
 
 const DeleteButton: React.FC<DeleteButtonProps> = ({ onDelete, itemType }) => {
