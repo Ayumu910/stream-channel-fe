@@ -1,0 +1,18 @@
+.stream-detail-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFF5E6;
+}
+
+.stream-detail-page__content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.stream-detail-page__main {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 220px; /* SideMenu の幅に合わせて調整 */
+  margin-top: 60px; /* NavBar の高さに合わせて調整 */
+}
