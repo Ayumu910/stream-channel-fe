@@ -6,6 +6,8 @@ import StreamDetailPage from './pages/StreamDetailPage';
 import StreamerDetailPage from './pages/StreamerDetailPage';
 import CategoryDetailPage from './pages/CategoryDetailPage'
 import PlaylistDetailPage from './pages/PlaylistDetailPage';
+import StreamerForumPage from './pages/StreamerForumPage';
+import StreamerAnalysisPage from './pages/StreamerAnalysisPage';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/playlist" element={<MyPlaylistsPage />} />
         <Route path="/stream/:id" element={<StreamDetailPage />} />
         <Route path="/streamer/:streamerId" element={<StreamerDetailPage />} />
+        <Route path="/streamer/:streamerId/forum" element={<StreamerForumPage />} />
+        <Route path="/streamer/:streamerId/analysis" element={<StreamerAnalysisPage />} />
         <Route path="/category/:categoryId" element={<CategoryDetailPage />} />
         <Route path="/playlist/:playlistId" element={<PlaylistDetailPage />} />
       </Routes>

@@ -1,0 +1,33 @@
+.add-to-category-button {
+  display: flex;
+  align-items: center;
+  background-color: #FF8A00;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-category-button:hover {
+  background-color: #E67A00;
+}
+
+.add-to-category-button__icon {
+  margin-right: 8px;
+}
+
+.add-to-category-button__form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}

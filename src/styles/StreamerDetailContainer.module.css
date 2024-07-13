@@ -1,0 +1,86 @@
+.streamer-detail {
+  width: 920px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.streamer-detail__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.streamer-detail__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.streamer-detail__name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3A2000;
+  margin-right: auto;
+}
+
+.streamer-detail__tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.streamer-detail__tab {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative; /* 疑似要素のための位置設定 */
+}
+
+/* タブ間の境界線 */
+.streamer-detail__tab:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background-color: #e0e0e0;
+}
+
+.streamer-detail__tab--active {
+  border-bottom: 2px solid #FF8A00;
+  color: #FF8A00;
+}
+
+.streamer-detail__tab:hover {
+  color: #FF8A00;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.streamer-detail__streams {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.streamer-detail__loading,
+.streamer-detail__error,
+.streamer-detail__not-found {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #3A2000;
+}
+
+.streamer-detail__error {
+  color: #E67A00;
+}
