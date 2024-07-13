@@ -1,0 +1,119 @@
+.add-to-category-form {
+  background-color: #FFF5E6;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.add-to-category-form__title {
+  color: #3A2000;
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.add-to-category-form__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-to-category-form__list {
+  margin-bottom: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.add-to-category-form__item {
+  margin-bottom: 10px;
+}
+
+.add-to-category-form__radio {
+  margin-right: 10px;
+}
+
+.add-to-category-form__label {
+  color: #3A2000;
+  font-size: 16px;
+}
+
+.add-to-category-form__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.add-to-category-form__submit,
+.add-to-category-form__cancel {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-category-form__submit {
+  background-color: #FF8A00;
+  color: white;
+}
+
+.add-to-category-form__submit:hover {
+  background-color: #E67A00;
+}
+
+.add-to-category-form__submit:disabled {
+  background-color: #FFD1A1;
+  cursor: not-allowed;
+}
+
+.add-to-category-form__cancel {
+  background-color: #FFD1A1;
+  color: #3A2000;
+}
+
+.add-to-category-form__cancel:hover {
+  background-color: #FFC080;
+}
+
+.add-to-category-form__message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  z-index: 1001;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+.add-to-category-form__message--success {
+  background-color: #D4EDDA;
+  color: #155724;
+}
+
+.add-to-category-form__message--error {
+  background-color: #F8D7DA;
+  color: #721C24;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}
+
+.add-to-category-form__loading,
+.add-to-category-form__error {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.add-to-category-form__error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+}
