@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { StreamerContext } from '../contexts/StreamerContext';
-import StreamerDetailContainer from '../components/streamer/StreamerDetailContainer';
+import StreamerHeader from '../components/streamer/StreamerHeader';
 
 const mockStreamer = {
   id: "UCvTZYxbx7LicJnvXTgvK8nw",
@@ -35,22 +35,26 @@ const mockStreamer = {
   streamer_icon: "https://yt3.ggpht.com/X0tHklAINUsf59rJltK2Fh0vZOKygEt_PxpiqYn7LKhHgUKw7401fvpmK6lmrvdmsfOuniJN=s88-c-k-c0x00ffffff-no-rj"
 };
 
-const meta: Meta<typeof StreamerDetailContainer> = {
-  title: 'Streamer/StreamerDetailContainer',
-  component: StreamerDetailContainer,
+const meta: Meta<typeof StreamerHeader> = {
+  title: 'Streamer/StreamerHeader',
+  component: StreamerHeader,
   decorators: [
     (Story) => (
-      <MemoryRouter>
-        <StreamerContext.Provider value={{ streamer: mockStreamer, isLoading: false, error: null }}>
-          <Story />
-        </StreamerContext.Provider>
+      <MemoryRouter initialEntries={['/streamer/UCvTZYxbx7LicJnvXTgvK8nw']}>
+        <Routes>
+          <Route path="/streamer/:streamerId" element={
+            <StreamerContext.Provider value={{ streamer: mockStreamer, isLoading: false, error: null }}>
+              <Story />
+            </StreamerContext.Provider>
+          } />
+        </Routes>
       </MemoryRouter>
     ),
   ],
 };
 
 export default meta;
-type Story = StoryObj<typeof StreamerDetailContainer>;
+type Story = StoryObj<typeof StreamerHeader>;
 
 export const Default: Story = {};
 
@@ -58,16 +62,6 @@ export const Loading: Story = {
   decorators: [
     (Story) => (
       <StreamerContext.Provider value={{ streamer: null, isLoading: true, error: null }}>
-        <Story />
-      </StreamerContext.Provider>
-    ),
-  ],
-};
-
-export const NoStreams: Story = {
-  decorators: [
-    (Story) => (
-      <StreamerContext.Provider value={{ streamer: { ...mockStreamer, streams: [] }, isLoading: false, error: null }}>
         <Story />
       </StreamerContext.Provider>
     ),
