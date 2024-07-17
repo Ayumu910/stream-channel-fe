@@ -1,0 +1,39 @@
+.streamer-comment-list {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.streamer-comment-list__title {
+  font-size: 20px;
+  color: #3A2000;
+  margin-bottom: 20px;
+}
+
+.streamer-comment-list__items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.streamer-comment-list__item {
+  background-color: #FFF5E6;
+  border: 1px solid #FFD1A1;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.streamer-comment-list__text {
+  margin: 0;
+  color: #3A2000;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.streamer-comment-list__empty {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 20px 0;
+}
