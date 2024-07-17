@@ -1,0 +1,19 @@
+.streamer-forum-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFF5E6;
+}
+
+.streamer-forum-page__content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.streamer-forum-page__main {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 220px; /* SideMenu width */
+  margin-top: 60px; /* NavBar height */
+  width: 940px;
+}
