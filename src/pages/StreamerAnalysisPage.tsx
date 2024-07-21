@@ -1,28 +1,34 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthProvider } from '../contexts/AuthContext';
+import { StreamerProvider } from '../contexts/StreamerContext';
 import GlobalNavBar from '../components/layout/NavBar';
 import SideMenu from '../components/layout/SideMenu';
+import StreamerHeader from '../components/streamer/StreamerHeader';
+import StreamerAnalysisContainer from '../components/streamer/StreamerAnalysisContainer';
 import styles from '../styles/StreamerAnalysisPage.module.css';
 
 const StreamerAnalysisPage: React.FC = () => {
-    const { streamerId } = useParams<{ streamerId: string }>();
+  const { streamerId } = useParams<{ streamerId: string }>();
 
-    return (
-      <AuthProvider>
-        <div className={styles['streamer-page']}>
+  if (!streamerId) return <div>Streamer ID not provided</div>;
+
+  return (
+    <AuthProvider>
+      <StreamerProvider streamerId={streamerId}>
+        <div className={styles['streamer-analysis-page']}>
           <GlobalNavBar />
-          <div className={styles['streamer-page__content']}>
+          <div className={styles['streamer-analysis-page__content']}>
             <SideMenu />
-            <main className={styles['streamer-page__main']}>
-              <h1>Streamer Analysis Page</h1>
-              <p>Streamer ID: {streamerId}</p>
-              <p>This page is under construction.</p>
+            <main className={styles['streamer-analysis-page__main']}>
+              <StreamerHeader />
+              <StreamerAnalysisContainer />
             </main>
           </div>
         </div>
-      </AuthProvider>
-    );
-}
+      </StreamerProvider>
+    </AuthProvider>
+  );
+};
 
 export default StreamerAnalysisPage;

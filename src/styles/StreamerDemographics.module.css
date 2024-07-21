@@ -1,0 +1,18 @@
+.streamer-demographics {
+  background-color: #FFFFFF;
+  border: 1px solid #FFD1A1;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.streamer-demographics__title {
+  font-size: 20px;
+  color: #3A2000;
+  margin-bottom: 15px;
+}
+
+.streamer-demographics__chart {
+  max-width: 800px;
+  margin: 0 auto;
+}
