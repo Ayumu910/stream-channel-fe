@@ -1,0 +1,18 @@
+.streamer-analysis-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFF5E6;
+}
+
+.streamer-analysis-page__content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.streamer-analysis-page__main {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 220px; /* SideMenu width */
+  margin-top: 60px; /* NavBar height */
+}

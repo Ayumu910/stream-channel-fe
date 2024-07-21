@@ -1,0 +1,41 @@
+.streamer-analysis {
+  width: 920px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.streamer-analysis__top-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.streamer-analysis__basic-info {
+  flex-basis: 30%;
+  margin-right: 20px;
+}
+
+.streamer-analysis__graph {
+  flex-basis: 65%;
+}
+
+.streamer-analysis__demographics {
+  margin-top: 20px;
+}
+
+.streamer-analysis__loading,
+.streamer-analysis__error,
+.streamer-analysis__not-found {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #3A2000;
+}
+
+.streamer-analysis__error {
+  color: #E67A00;
+}

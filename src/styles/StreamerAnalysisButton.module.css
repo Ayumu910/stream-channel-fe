@@ -1,0 +1,24 @@
+.streamer-analysis-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #FF8A00;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.streamer-analysis-button:hover {
+  background-color: #E67A00;
+}
+
+.streamer-analysis-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.3);
+}

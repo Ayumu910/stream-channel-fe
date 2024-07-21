@@ -1,0 +1,36 @@
+.streamer-basic-info {
+  background-color: #FFFFFF;
+  border: 1px solid #FFD1A1;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.streamer-basic-info__title {
+  font-size: 20px;
+  color: #3A2000;
+  margin-bottom: 30px;
+}
+
+.streamer-basic-info__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.streamer-basic-info__item {
+  margin-bottom: 40px;
+}
+
+.streamer-basic-info__label {
+  font-size: 22px;
+  color: #3A2000;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.streamer-basic-info__value {
+  font-size: 36px;
+  font-weight: bold;
+  color: #3A2000;
+}
