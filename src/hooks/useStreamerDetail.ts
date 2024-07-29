@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { setCacheItem, getCacheItem } from '../utils/cacheUtils';
 
-interface Streamer {
+export interface Streamer {
   id: string;
   name: string;
   url: string;
@@ -9,7 +10,7 @@ interface Streamer {
   streamer_icon: string;
 }
 
-interface Stream {
+export interface Stream {
   id: string;
   title: string;
   views: string;
@@ -30,6 +31,14 @@ const useStreamerDetail = (streamerId: string | undefined) => {
       setError(null);
 
       try {
+        const cacheKey = `streamer_${streamerId}`;
+        const cachedStreamer = await getCacheItem<Streamer>(cacheKey);
+        if (cachedStreamer) {
+          setStreamer(cachedStreamer);
+          setIsLoading(false);
+          return;
+        }
+
         const platform = /^\d+$/.test(streamerId) ? 'twitch' : 'youtube';
         const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/streamer/${streamerId}?platform=${platform}`);
 
@@ -39,6 +48,7 @@ const useStreamerDetail = (streamerId: string | undefined) => {
 
         const data = await response.json();
         setStreamer(data);
+        await setCacheItem(cacheKey, data);
       } catch (err) {
         setError(err instanceof Error ? err : new Error('An unknown error occurred'));
       } finally {

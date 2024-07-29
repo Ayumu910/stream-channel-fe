@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
+import { setCacheItem } from '../utils/cacheUtils';
 
-interface Streamer {
+export interface Streamer {
   id: string;
   name: string;
   platform: string;
   streamer_icon: string;
   most_recent_stream_thumbnail: string;
 }
-interface Category {
+
+export interface CategoryDetail {
   category_id: string;
   category_name: string;
   streamers: Streamer[];
 }
 
 const useCategoryDetail = (categoryId: string | undefined) => {
-  const [category, setCategory] = useState<Category | null>(null);
+  const [category, setCategory] = useState<CategoryDetail | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
@@ -35,12 +37,12 @@ const useCategoryDetail = (categoryId: string | undefined) => {
           throw new Error('Failed to fetch category detail');
         }
 
-        const data: Category = await response.json();
-          setCategory(data);
-        } catch (error) {
-          setError(error as Error);
-        }
-
+        const data: CategoryDetail = await response.json();
+        setCategory(data);
+        await setCacheItem(`category_${categoryId}`, data);
+      } catch (error) {
+        setError(error as Error);
+      }
         setIsLoading(false);
       };
 
