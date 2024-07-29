@@ -1,29 +1,29 @@
 import { renderHook, act, waitFor } from '@testing-library/react';
 import useStreamList from '../src/hooks/useStreamList';
+import { getCacheItem } from '../src/utils/cacheUtils';
 
-// fetch のモックを作成
-const fetchMock = jest.fn();
-global.fetch = fetchMock;
+// getCacheItemのモックを作成
+jest.mock('../src/utils/cacheUtils', () => ({
+  getCacheItem: jest.fn(),
+}));
 
 describe('useStreamList', () => {
   beforeEach(() => {
-    fetchMock.mockClear();
+    jest.clearAllMocks();
   });
 
-  it('should fetch and set streams correctly', async () => {
+  it('should fetch streams from cache correctly', async () => {
     // モックデータを定義
-    const categoriesData = {
-      categories: [
-        {
-          category_id: '1',
-          category_title: 'New Category',
-          shared: false,
-          user_id: '27dc16d9-e3cf-45fc-9784-91f63b670ae3',
-        },
-      ],
-    };
+    const cachedCategories = [
+      {
+        category_id: '1',
+        category_title: 'New Category',
+        shared: false,
+        user_id: '27dc16d9-e3cf-45fc-9784-91f63b670ae3',
+      },
+    ];
 
-    const categoryData = {
+    const cachedCategoryDetail = {
       category_id: '1',
       category_name: 'New Category',
       streamers: [
@@ -37,7 +37,7 @@ describe('useStreamList', () => {
       ],
     };
 
-    const streamerData = {
+    const cachedStreamerDetail = {
       id: 'UCx1nAvtVDIsaGmCMSe8ofsQ',
       name: 'jun channel',
       url: 'https://www.youtube.com/channel/UCx1nAvtVDIsaGmCMSe8ofsQ',
@@ -54,18 +54,12 @@ describe('useStreamList', () => {
       streamer_icon: 'https://example.com/jun_channel_icon.jpg',
     };
 
-    // fetch のモックを設定
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      json: async () => categoriesData,
-    });
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      json: async () => categoryData,
-    });
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      json: async () => streamerData,
+    // getCacheItemのモックを設定
+    (getCacheItem as jest.Mock).mockImplementation((key) => {
+      if (key === 'categories') return Promise.resolve(cachedCategories);
+      if (key === 'category_1') return Promise.resolve(cachedCategoryDetail);
+      if (key.includes('streamer_UCx1nAvtVDIsaGmCMSe8ofsQ')) return Promise.resolve(cachedStreamerDetail);
+      return Promise.resolve(null);
     });
 
     // useStreamList フックをレンダリング
@@ -83,19 +77,31 @@ describe('useStreamList', () => {
         },
       ]);
     });
+
+    // getCacheItemが正しく呼び出されたことを確認
+    expect(getCacheItem).toHaveBeenCalledWith('categories');
+    expect(getCacheItem).toHaveBeenCalledWith('category_1');
+    expect(getCacheItem).toHaveBeenCalledWith('streamer_UCx1nAvtVDIsaGmCMSe8ofsQ');
+  });
+
+  it('should handle empty cache', async () => {
+    // getCacheItemのモックを設定（すべてのキーに対してnullを返す）
+    (getCacheItem as jest.Mock).mockResolvedValue(null);
+
+    // useStreamList フックをレンダリング
+    const { result } = renderHook(() => useStreamList());
+
+    // データ取得の完了を待つ
+    await waitFor(() => {
+      expect(result.current.streams).toEqual([]);
+      expect(result.current.error).toBeInstanceOf(Error);
+      expect(result.current.error?.message).toBe('Categories not found in cache');
+    });
   });
 
   it('should update displayCount when handleShowMore is called', async () => {
-    // モックデータを定義
-    const categoriesData = {
-      categories: [],
-    };
-
-    // fetch のモックを設定
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      json: async () => categoriesData,
-    });
+    // getCacheItemのモックを設定（空の配列を返す）
+    (getCacheItem as jest.Mock).mockResolvedValue([]);
 
     // useStreamList フックをレンダリング
     const { result } = renderHook(() => useStreamList());
@@ -110,7 +116,7 @@ describe('useStreamList', () => {
       result.current.handleShowMore();
     });
 
-    // displayCount が13に更新されていることを確認
-    expect(result.current.displayCount).toBe(13);
+    // displayCount が14に更新されていることを確認
+    expect(result.current.displayCount).toBe(14);
   });
 });

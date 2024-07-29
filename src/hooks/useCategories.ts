@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
+import { setCacheItem } from '../utils/cacheUtils';
 
-interface Category {
+export interface Category {
   category_id: string;
   category_title: string;
   shared: boolean;
@@ -29,6 +30,7 @@ const useCategories = () => {
 
       const data = await response.json();
       setCategories(data.categories);
+      await setCacheItem('categories', data.categories);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('An unknown error occurred'));
     } finally {
