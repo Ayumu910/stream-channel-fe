@@ -8,7 +8,7 @@ const RecommendedPlaylists: React.FC = () => {
 
   return (
     <div className={styles["recommended-playlists"]}>
-      <h2 className={styles['recommended-playlists__heading']}>人気のプレイリスト</h2>
+      <h2 className={styles['recommended-playlists__heading']}>他の人が見ているプレイリスト</h2>
       <div className={styles["recommended-playlists__list"]}>
         {playlists.map((playlist) => (
           <Playlist

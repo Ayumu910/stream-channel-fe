@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import useCategories from '../../hooks/useCategories';
 import styles from '../../styles/ShareCategoryForm.module.css';
+import { X } from 'lucide-react';
 
 interface ShareCategoryFormProps {
   onClose: () => void;
@@ -51,7 +52,9 @@ const ShareCategoryForm: React.FC<ShareCategoryFormProps> = ({ onClose }) => {
 
   return (
     <div className={styles['share-category-form']}>
-      <button className={styles['share-category-form__close-button']} onClick={onClose}>×</button>
+      <button className={styles['share-category-form__close-button']} onClick={onClose}>
+      <X size={18} />
+      </button>
       <h2 className={styles['share-category-form__title']}>Share Categories</h2>
       <div className={styles['share-category-form__category-list']}>
         {categories.map((category) => (

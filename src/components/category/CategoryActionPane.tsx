@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import AddCategoryForm from './AddCategoryForm';
 import ShareCategoryForm from './ShareCategoryForm';
 import styles from '../../styles/CategoryActionPane.module.css';
+import { Plus, Link } from 'lucide-react';
 
 const CategoryActionPane: React.FC = () => {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -17,7 +18,9 @@ const CategoryActionPane: React.FC = () => {
         )}
         onClick={() => setShowAddForm(true)}
       >
-        <span className={styles['category-action-pane__button-icon']}>+</span>
+        <span className={styles['category-action-pane__button-icon']}>
+          <Plus size={20} />
+        </span>
         Streamer Category
       </button>
       <button
@@ -27,7 +30,9 @@ const CategoryActionPane: React.FC = () => {
         )}
         onClick={() => setShowShareForm(true)}
       >
-        <span className={styles['category-action-pane__button-icon']}>🔗</span>
+        <span className={styles['category-action-pane__button-icon']}>
+          <Link size={20} />
+        </span>
         Share Category
       </button>
       {showAddForm && (

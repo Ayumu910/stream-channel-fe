@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import useCategories from '../../hooks/useCategories';
 import { isValidStreamerUrl } from '../../utils/urlValidator';
 import styles from '../../styles/AddCategoryForm.module.css';
+import { X, Plus } from 'lucide-react';
 
 interface AddCategoryFormProps {
   onClose: () => void;
@@ -83,7 +84,9 @@ const AddCategoryForm: React.FC<AddCategoryFormProps> = ({ onClose }) => {
 
   return (
     <div className={styles['add-category-form']}>
-      <button className={styles['add-category-form__close-button']} onClick={onClose}>×</button>
+      <button className={styles['add-category-form__close-button']} onClick={onClose}>
+        <X size={18} />
+      </button>
       <h2 className={styles['add-category-form__title']}>Add Streamer to Category</h2>
       {message && (
         <div className={classNames(
@@ -107,7 +110,7 @@ const AddCategoryForm: React.FC<AddCategoryFormProps> = ({ onClose }) => {
                   expandedCategory === category.category_id ? null : category.category_id
                 )}
               >
-                +
+                <Plus size={20} />
               </button>
             </div>
             {expandedCategory === category.category_id && (
