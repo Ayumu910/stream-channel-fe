@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import usePlaylists from '../../hooks/usePlaylists';
 import { isValidStreamUrl } from '../../utils/urlValidator';
 import styles from '../../styles/AddPlaylistForm.module.css';
+import { X, Plus } from 'lucide-react';
 
 interface AddPlaylistFormProps {
   onClose: () => void;
@@ -77,7 +78,9 @@ const AddPlaylistForm: React.FC<AddPlaylistFormProps> = ({ onClose }) => {
 
   return (
     <div className={styles['add-playlist-form']}>
-      <button className={styles['add-playlist-form__close-button']} onClick={onClose}>×</button>
+      <button className={styles['add-playlist-form__close-button']} onClick={onClose}>
+        <X size={18} />
+      </button>
       <h2 className={styles['add-playlist-form__title']}>Add Stream to Playlist</h2>
       {message && (
         <div className={classNames(
@@ -101,7 +104,7 @@ const AddPlaylistForm: React.FC<AddPlaylistFormProps> = ({ onClose }) => {
                   expandedPlaylist === playlist.playlist_id ? null : playlist.playlist_id
                 )}
               >
-                +
+                <Plus size={20} />
               </button>
             </div>
             {expandedPlaylist === playlist.playlist_id && (

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import AddPlaylistForm from './AddPlaylistForm';
 import SharePlaylistForm from './SharePlaylistForm';
 import styles from '../../styles/PlaylistActionPane.module.css';
+import { Plus, Link } from 'lucide-react';
 
 const PlaylistActionPane: React.FC = () => {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -17,7 +18,9 @@ const PlaylistActionPane: React.FC = () => {
         )}
         onClick={() => setShowAddForm(true)}
       >
-        <span className={styles['playlist-action-pane__button-icon']}>+</span>
+        <span className={styles['playlist-action-pane__button-icon']}>
+        <Plus size={20} />
+        </span>
         Add Playlist
       </button>
       <button
@@ -27,7 +30,9 @@ const PlaylistActionPane: React.FC = () => {
         )}
         onClick={() => setShowShareForm(true)}
       >
-        <span className={styles['playlist-action-pane__button-icon']}>🔗</span>
+        <span className={styles['playlist-action-pane__button-icon']}>
+        <Link size={20} />
+        </span>
         Share Playlist
       </button>
       {showAddForm && (

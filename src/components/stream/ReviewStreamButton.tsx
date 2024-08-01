@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from '../../styles/ReviewStreamButton.module.css';
+import { ThumbsUp, ThumbsDown } from 'lucide-react';
 
 interface ReviewStreamButtonProps {
   streamId: string;
@@ -51,7 +52,8 @@ const ReviewStreamButton: React.FC<ReviewStreamButtonProps> = ({
         )}
         onClick={() => handleReview(true)}
       >
-        🔥 アタリ枠 {goodCount}
+        <ThumbsUp size={18} />
+        アタリ枠 {goodCount}
       </button>
       <button
         className={classNames(
@@ -60,7 +62,8 @@ const ReviewStreamButton: React.FC<ReviewStreamButtonProps> = ({
         )}
         onClick={() => handleReview(false)}
       >
-        💧 ハズレ枠 {badCount}
+        <ThumbsDown size={18} />
+        ハズレ枠 {badCount}
       </button>
     </div>
   );
