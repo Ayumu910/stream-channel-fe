@@ -26,7 +26,7 @@ const StreamCommentForm: React.FC<StreamCommentFormProps> = ({ streamId }) => {
 
     try {
       const platform = /^\d+$/.test(streamId) ? 'twitch' : 'youtube';
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/streams/${streamId}/comments`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/streams/${streamId}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

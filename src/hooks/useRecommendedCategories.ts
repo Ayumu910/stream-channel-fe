@@ -12,7 +12,7 @@ const useRecommendedCategories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/recommended-categories`);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/recommended-categories`);
         const data = await response.json();
         setCategories(data.categories);
       } catch (error) {

@@ -20,7 +20,7 @@ const ReviewStreamButton: React.FC<ReviewStreamButtonProps> = ({
   const handleReview = async (isGood: boolean) => {
     try {
       const platform = /^\d+$/.test(streamId) ? 'twitch' : 'youtube';
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/streams/${streamId}/ratings`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/streams/${streamId}/ratings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -26,7 +26,7 @@ const AddPlaylistForm: React.FC<AddPlaylistFormProps> = ({ onClose }) => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/playlists/${playlistId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/playlists/${playlistId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const AddPlaylistForm: React.FC<AddPlaylistFormProps> = ({ onClose }) => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/playlists`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/playlists`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

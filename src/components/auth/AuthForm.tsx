@@ -35,7 +35,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ onClose }) => {
     setErrorMessage('');  //メッセージの再描画のために
 
     try {
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/guest-login`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/guest-login`, {
         method: 'POST'
       });
 

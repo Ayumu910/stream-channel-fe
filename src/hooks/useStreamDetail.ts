@@ -44,7 +44,7 @@ const useStreamDetail = (streamId: string | undefined) => {
 
       try {
         const platform = /^\d+$/.test(streamId) ? 'twitch' : 'youtube';
-        const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/streams/${streamId}?platforms=${platform}`);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/streams/${streamId}?platforms=${platform}`);
         if (!response.ok) {
           throw new Error('Failed to fetch stream detail');
         }

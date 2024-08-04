@@ -28,7 +28,7 @@ const useStreamerAnalytics = (streamerId: string | undefined, platform: string |
     setError(null);
 
     try {
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/streamer/${streamerId}/analytics?platform=${platform}`);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/streamer/${streamerId}/analytics?platform=${platform}`);
       if (!response.ok) {
         throw new Error('Failed to fetch analytics data');
       }

@@ -20,7 +20,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onClose }) => {
     setErrorMessage('');  //メッセージの再描画のために
 
     try {
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/accounts`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/accounts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

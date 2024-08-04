@@ -29,7 +29,7 @@ const ShareCategoryForm: React.FC<ShareCategoryFormProps> = ({ onClose }) => {
       const newShareStatus = !category.shared;
 
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/categories/${confirmationCategory}/share`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/categories/${confirmationCategory}/share`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

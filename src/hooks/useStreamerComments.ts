@@ -23,7 +23,7 @@ const useStreamerComments = (streamerId: string) => {
     setError(null);
 
     try {
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/streamer/${streamerId}/comments`);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/streamer/${streamerId}/comments`);
       if (!response.ok) {
         throw new Error('Failed to fetch comments');
       }
@@ -46,7 +46,7 @@ const useStreamerComments = (streamerId: string) => {
 
     try {
       const platform = /^\d+$/.test(streamerId) ? 'twitch' : 'youtube';
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/streamer/${streamerId}/comments`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/streamer/${streamerId}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,13 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import env from 'vite-plugin-env-compatible'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    env({ prefix: "VITE",  mountedPath: "process.env" })
   ],
+  base: '/stream-channel-fe/',
   css: {
     modules: {
       scopeBehaviour: 'local', // 'global' にすると全てのクラス名がグローバルに

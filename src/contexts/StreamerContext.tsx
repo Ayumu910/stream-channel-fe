@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react';
 import useStreamerDetail from '../hooks/useStreamerDetail';
-import { Stream } from '../hooks/useStreamList';
+import { Stream } from '../hooks/useStreamerDetail';
 
 interface Streamer {
   id: string;

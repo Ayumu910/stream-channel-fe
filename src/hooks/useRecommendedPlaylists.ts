@@ -12,7 +12,7 @@ const useRecommendedPlaylists = () => {
   useEffect(() => {
     const fetchRecommendedPlaylists = async () => {
       try {
-        const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/recommended-playlists`);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/recommended-playlists`);
         const data = await response.json();
         setPlaylists(data.playlists);
       } catch (error) {

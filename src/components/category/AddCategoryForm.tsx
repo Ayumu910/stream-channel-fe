@@ -27,7 +27,7 @@ const AddCategoryForm: React.FC<AddCategoryFormProps> = ({ onClose }) => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/categories/${categoryId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/categories/${categoryId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const AddCategoryForm: React.FC<AddCategoryFormProps> = ({ onClose }) => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/categories`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/categories`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

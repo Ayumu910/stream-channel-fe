@@ -22,7 +22,7 @@ const MyCategoryList: React.FC = () => {
   const handleDeleteCategory = useCallback(async (categoryId: string) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/categories/${categoryId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/categories/${categoryId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -84,7 +84,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
   const handleDeleteStreamer = useCallback(async (streamerId: string) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/categories/${category.category_id}/streamers/${streamerId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/categories/${category.category_id}/streamers/${streamerId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

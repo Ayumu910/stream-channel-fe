@@ -28,7 +28,7 @@ const SharePlaylistForm: React.FC<SharePlaylistFormProps> = ({ onClose }) => {
       const newShareStatus = !playlist.shared;
 
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/playlists/${confirmationPlaylist}/share`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/playlists/${confirmationPlaylist}/share`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

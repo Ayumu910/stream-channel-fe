@@ -26,7 +26,7 @@ const usePlaylistDetail = (playlistId: string | undefined) => {
       if (!playlistId) return;
 
       const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/playlists/${playlistId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/playlists/${playlistId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

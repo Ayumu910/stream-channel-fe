@@ -47,7 +47,7 @@ const StreamerAnalysisForm: React.FC<StreamerAnalysisFormProps> = ({ onClose, on
     }
 
     try {
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/streamer/${streamer?.id}/analytics`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/streamer/${streamer?.id}/analytics`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

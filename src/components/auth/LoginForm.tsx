@@ -20,7 +20,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
     setErrorMessage('');  //メッセージの再描画のために
 
     try {
-      const response = await fetch(`${process.env.VITE_LOCAL_API_URL}/api/login`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
