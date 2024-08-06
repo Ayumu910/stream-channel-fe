@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import AuthForm from '../auth/AuthForm';
 import { AuthContext  } from '../../contexts/AuthContext'
+import { Link } from 'react-router-dom';
 import styles from '../../styles/SideMenu.module.css';
 
 const SideMenu: React.FC = ( ) => {
@@ -26,13 +27,13 @@ const SideMenu: React.FC = ( ) => {
 
         <ul className={styles["side-menu__list"]}>
           <li className={styles["side-menu__item"]}>
-            <a href="/" className={styles["side-menu__link"]}>Top</a>
+            <Link to="/" className={styles["side-menu__link"]}>Top</Link>
           </li>
           <li className={styles["side-menu__item"]}>
-            <a href="/streamer" className={styles["side-menu__link"]}>Streamer</a>
+            <Link to="/streamer" className={styles["side-menu__link"]}>Streamer</Link>
           </li>
           <li className={styles["side-menu__item"]}>
-            <a href="/playlist" className={styles["side-menu__link"]}>Playlist</a>
+            <Link to="/playlist" className={styles["side-menu__link"]}>Playlist</Link>
           </li>
         </ul>
 

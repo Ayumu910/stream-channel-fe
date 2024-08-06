@@ -11,7 +11,7 @@ import StreamerAnalysisPage from './pages/StreamerAnalysisPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/stream-channel-fe'>
       <Routes>
         <Route path="/" element={<TopPage />} />
         <Route path="/streamer" element={<MyStreamerCategoriesPage />} />

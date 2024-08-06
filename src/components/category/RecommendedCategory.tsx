@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAppNavigate } from '../../hooks/useAppNavigate';
 import styles from '../../styles/RecommendedCategory.module.css';
 
 interface RecommendedCategoryProps {
@@ -13,10 +13,10 @@ const RecommendedCategory: React.FC<RecommendedCategoryProps> = ({
   streamerIcons,
   }) =>
 {
-  const navigate = useNavigate();
+  const navigate = useAppNavigate();
 
   const handleCategoryClick = () => {
-    navigate(`/category/${categoryId}`);
+    navigate(`category/${categoryId}`);
   };
 
   return (

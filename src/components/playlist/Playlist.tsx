@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAppNavigate } from '../../hooks/useAppNavigate';
 import styles from '../../styles/Playlist.module.css';
 
 interface PlaylistProps {
@@ -9,10 +9,10 @@ interface PlaylistProps {
 }
 
 const Playlist: React.FC<PlaylistProps> = ({ playlistId, playlistName, thumbnail }) => {
-  const navigate = useNavigate();
+  const navigate = useAppNavigate();
 
   const handleClick = () => {
-    navigate(`/playlist/${playlistId}`);
+    navigate(`playlist/${playlistId}`);
   };
 
   return (

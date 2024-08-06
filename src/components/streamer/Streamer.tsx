@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAppNavigate } from '../../hooks/useAppNavigate';
 import styles from '../../styles/Streamer.module.css';
 
 interface StreamerProps {
@@ -12,10 +12,10 @@ interface StreamerProps {
   };
 }
 const Streamer: React.FC<StreamerProps> = ({ streamer }) => {
-  const navigate = useNavigate();
+  const navigate = useAppNavigate();
 
   const handleStreamerClick = () => {
-    navigate(`/streamer/${streamer.id}`);
+    navigate(`streamer/${streamer.id}`);
   };
 
   return (

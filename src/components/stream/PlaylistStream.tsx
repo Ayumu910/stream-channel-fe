@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAppNavigate } from '../../hooks/useAppNavigate'
 import styles from '../../styles/PlaylistStream.module.css';
 import { Stream } from '../../hooks/usePlaylistDetail';
 
@@ -8,10 +8,10 @@ interface PlaylistStreamProps {
 }
 
 const PlaylistStream: React.FC<PlaylistStreamProps> = ({ stream }) => {
-  const navigate = useNavigate();
+  const navigate = useAppNavigate();
 
   const handleClick = () => {
-    navigate(`/stream/${stream.stream_id}`);
+    navigate(`stream/${stream.stream_id}`);
   };
 
   return (
