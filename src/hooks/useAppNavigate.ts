@@ -7,16 +7,14 @@ export const useAppNavigate = () => {
       // ベースパスを取得 (例: '/stream-channel-fe/')
       const basePath = import.meta.env.BASE_URL || '/';
 
+      // パスからベースパスを除去（重複を防ぐため）
+      const cleanPath = path.replace(new RegExp(`^${basePath}`), '');
+
       // 新しいパスを構築
-      let newPath = `${basePath}${path.startsWith('/') ? path.slice(1) : path}`;
+      const newPath = `${basePath}${cleanPath.startsWith('/') ? cleanPath.slice(1) : cleanPath}`;
 
-      // stream-channel-fe が重複している場合、重複を除去
-      newPath = newPath.replace(`${basePath}${basePath}`, basePath);
-
-      // 最終的なパスを構築（末尾のスラッシュを除去）
-      const finalPath = newPath.replace(/\/+$/, '');
-
-      navigate(finalPath, options);
+      console.log('Navigating to:', newPath); // デバッグ用
+      navigate(newPath, options);
     } else {
       navigate(path, options);
     }
