@@ -11,7 +11,7 @@ const PlaylistStream: React.FC<PlaylistStreamProps> = ({ stream }) => {
   const navigate = useAppNavigate();
 
   const handleClick = () => {
-    navigate(`stream/${stream.stream_id}`);
+    navigate(`/stream/${stream.stream_id}`);
   };
 
   return (

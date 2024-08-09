@@ -12,7 +12,7 @@ const Stream: React.FC<StreamProps> = ({ thumbnail, title, streamId }) => {
   const navigate = useAppNavigate();
 
   const handleClick = () => {
-    navigate(`stream/${streamId}`);
+    navigate(`/stream/${streamId}`);
   };
 
   return (
