@@ -16,7 +16,7 @@ const RecommendedCategory: React.FC<RecommendedCategoryProps> = ({
   const navigate = useAppNavigate();
 
   const handleCategoryClick = () => {
-    navigate(`category/${categoryId}`);
+    navigate(`/category/${categoryId}`);
   };
 
   return (

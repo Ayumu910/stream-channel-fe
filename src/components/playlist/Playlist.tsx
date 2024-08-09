@@ -12,7 +12,7 @@ const Playlist: React.FC<PlaylistProps> = ({ playlistId, playlistName, thumbnail
   const navigate = useAppNavigate();
 
   const handleClick = () => {
-    navigate(`playlist/${playlistId}`);
+    navigate(`/playlist/${playlistId}`);
   };
 
   return (

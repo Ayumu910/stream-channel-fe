@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAppNavigate } from '../../hooks/useAppNavigate'
 import useStreamDetail from '../../hooks/useStreamDetail';
 import AddToPlaylistButton from './AddToPlaylistButton';
 import ReviewStreamButton from './ReviewStreamButton';
@@ -13,7 +13,7 @@ interface StreamDetailContainerProps {
 
 const StreamDetailContainer: React.FC<StreamDetailContainerProps> = ({ streamId }) => {
   const { stream, isLoading, error } = useStreamDetail(streamId);
-  const navigate = useNavigate();
+  const navigate = useAppNavigate();
 
   if (isLoading) return <div className={styles['stream-detail__loading']}>Loading...</div>;
   if (error) return <div className={styles['stream-detail__error']}>Error: {error.message}</div>;
